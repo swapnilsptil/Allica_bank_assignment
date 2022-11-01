@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Getting Started
 
 Clone this repo :
-`git clone {GIT_URL}`
+`git clone https://github.com/swapnilsptil/Allica_bank_assignment.git`
 
 Navigate to the root folder and install all dependencies :
 
