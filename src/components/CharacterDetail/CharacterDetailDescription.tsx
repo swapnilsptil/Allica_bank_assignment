@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { Wrapper, Label, Text } from './CharacterDetail.style';
+import { Wrapper, Label, Text } from "./CharacterDetail.style";
 
 export default function CharacterDetailDescription({
-  description,
+  description
 }: CharacterDetailDescriptionProps) {
   return (
     <Wrapper>
@@ -19,5 +19,5 @@ export type CharacterDetailDescriptionProps = {
 };
 
 CharacterDetailDescription.propTypes = {
-  description: PropTypes.string,
+  description: PropTypes.string
 };

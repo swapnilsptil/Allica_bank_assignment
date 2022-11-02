@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { COLOR_WHITE, COLOR_GRAY } from 'src/shared/styles/themes/colors';
+import { COLOR_WHITE, COLOR_GRAY } from "src/shared/styles/themes/colors";
 
 const Header = styled.header`
   display: flex;
@@ -29,7 +29,7 @@ const Back = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: 'Star Jedi', 'Open Sans', sans-serif;
+  font-family: "Star Jedi", "Open Sans", sans-serif;
   font-size: 4rem;
   margin-bottom: 1.5rem;
   letter-spacing: 2px;
@@ -46,12 +46,12 @@ const Team = styled.p`
 export default function CharacterDetailHeader({
   title,
   birth_year,
-  gender,
+  gender
 }: CharacterDetailHeaderProps) {
   return (
     <Header>
       <Back>
-        <Link to='/'>&larr; Back to list</Link>
+        <Link to="/">&larr; Back to list</Link>
       </Back>
       <Title>{title}</Title>
       <Team>Birth Year : {birth_year}</Team>
@@ -69,5 +69,5 @@ export type CharacterDetailHeaderProps = {
 CharacterDetailHeader.propTypes = {
   title: PropTypes.string,
   birth_year: PropTypes.string,
-  gender: PropTypes.string,
+  gender: PropTypes.string
 };

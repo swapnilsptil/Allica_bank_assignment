@@ -1,43 +1,41 @@
-import React from 'react';
-import { MemoryRouter as Router } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import React from "react";
+import { MemoryRouter as Router } from "react-router-dom";
+import { render, screen } from "@testing-library/react";
 
-import { formatDate } from 'src/shared/helpers/format-date';
-import CharacterItem from './CharacterItem';
+import { formatDate } from "src/shared/helpers/format-date";
+import CharacterItem from "./CharacterItem";
 
 const mockedFormatDate = formatDate as jest.Mock<string>;
 
-jest.mock('src/shared/helpers/format-date');
+jest.mock("src/shared/helpers/format-date");
 
-describe('<CharacterItem />', () => {
+describe("<CharacterItem />", () => {
   afterEach(() => {
     mockedFormatDate.mockReset();
   });
 
-  test('Should render properly', () => {
-    mockedFormatDate.mockImplementation(() => 'October 09, 2010');
+  test("Should render properly", () => {
+    mockedFormatDate.mockImplementation(() => "October 09, 2010");
     render(
       <Router>
         <CharacterItem
           id={1}
-          name='Luke Skywalker'
-          height='172'
-          mass='77'
-          hair_color='blond'
-          skin_color='fair'
+          name="Luke Skywalker"
+          height="172"
+          mass="77"
+          hair_color="blond"
+          skin_color="fair"
+          home_world="Tatooine"
+          gender="male"
         />
       </Router>
     );
 
     const titleElement = screen.getByText(/Luke Skywalker/i);
-    const skinColorElement = screen.getByText(/fair/i);
-    const heightElement = screen.getByText(/172/i);
-    const massElement = screen.getByText(/77/i);
+    const genderElement = screen.getByText(/male/i);
 
     expect(titleElement).toBeInTheDocument();
-    expect(titleElement).toHaveAttribute('href', '/people/1');
-    expect(skinColorElement).toBeInTheDocument();
-    expect(heightElement).toBeInTheDocument();
-    expect(massElement).toBeInTheDocument();
+    expect(titleElement).toHaveAttribute("href", "/people/1");
+    expect(genderElement).toBeInTheDocument();
   });
 });

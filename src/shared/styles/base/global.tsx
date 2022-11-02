@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import { COLOR_WHITE, COLOR_BLACK } from '../themes/colors';
+import { COLOR_WHITE, COLOR_BLACK } from "../themes/colors";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

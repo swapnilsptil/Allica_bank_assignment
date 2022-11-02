@@ -1,9 +1,9 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import { ReactComponent as LoaderLogo } from 'src/shared/assets/icon/loader.svg';
+import { ReactComponent as LoaderLogo } from "src/shared/assets/icon/loader.svg";
 
-import { COLOR_YELLOW } from 'src/shared/styles/themes/colors';
+import { COLOR_YELLOW } from "src/shared/styles/themes/colors";
 
 const loaderSpin = keyframes`
   from {
@@ -29,8 +29,8 @@ const LoaderStyle = styled.div`
 `;
 
 const Loader = () => (
-  <LoaderStyle data-testid='loader'>
-    <LoaderLogo className='loader-logo' />
+  <LoaderStyle data-testid="loader">
+    <LoaderLogo className="loader-logo" />
   </LoaderStyle>
 );
 

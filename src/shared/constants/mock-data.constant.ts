@@ -1,4 +1,4 @@
-import { CharacterDetailType, MovieDetailType } from '../helpers/api';
+import { CharacterDetailType, MovieDetailType } from "../helpers/api";
 
 // export const MOVIE_DETAIL_MOCK_DATA: MovieDetailType = {
 //   title: 'Something Title',
@@ -15,25 +15,25 @@ import { CharacterDetailType, MovieDetailType } from '../helpers/api';
 
 export const CHARACTER_DETAIL_MOCK_DATA: CharacterDetailType = {
   id: 1,
-  name: 'Luke Skywalker',
-  height: '111',
-  mass: '187',
-  hair_color: 'blond',
-  skin_color: 'fair',
-  eye_color: 'blue',
-  birth_year: '19BBY',
-  gender: 'male',
-  homeworld: 'https://swapi.dev/api/planets/1/',
+  name: "Luke Skywalker",
+  height: "111",
+  mass: "187",
+  hair_color: "blond",
+  skin_color: "fair",
+  eye_color: "blue",
+  birth_year: "19BBY",
+  gender: "male",
+  homeworld: "https://swapi.dev/api/planets/1/",
   films: [
-    'A New Hope',
-    'The Empire Strikes Back',
-    'Return of the Jedi',
-    'Revenge of the Sith',
+    "A New Hope",
+    "The Empire Strikes Back",
+    "Return of the Jedi",
+    "Revenge of the Sith"
   ],
   species: [],
-  vehicles: ['Snowspeeder', 'Imperial Speeder Bike'],
-  starships: ['X-wing', 'Imperial shuttle'],
-  created: '2014-12-09T13:50:51.644000Z',
-  edited: '2014-12-09T13:50:51.644000Z',
-  url: 'https://swapi.dev/api/people/1/',
+  vehicles: ["Snowspeeder", "Imperial Speeder Bike"],
+  starships: ["X-wing", "Imperial shuttle"],
+  created: "2014-12-09T13:50:51.644000Z",
+  edited: "2014-12-09T13:50:51.644000Z",
+  url: "https://swapi.dev/api/people/1/"
 };

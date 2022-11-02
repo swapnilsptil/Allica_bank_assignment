@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { Wrapper, Label } from './CharacterDetail.style';
+import { Wrapper, Label } from "./CharacterDetail.style";
 
-import { COLOR_BORDER } from 'src/shared/styles/themes/colors';
+import { COLOR_BORDER } from "src/shared/styles/themes/colors";
 
 const WrapperCustom = styled(Wrapper)`
   padding-top: 3rem;
@@ -36,7 +36,7 @@ const ListItem = styled.li`
 
 export default function CharacterDetailList({
   label,
-  list,
+  list
 }: CharacterDetailListProps) {
   return (
     <WrapperCustom>
@@ -61,5 +61,5 @@ export type CharacterDetailListProps = {
 
 CharacterDetailList.propTypes = {
   label: PropTypes.string.isRequired,
-  list: PropTypes.array,
+  list: PropTypes.array
 };

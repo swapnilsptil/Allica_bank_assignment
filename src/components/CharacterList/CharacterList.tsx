@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { Container, Row } from 'src/shared/styles/base/grid';
-import Loader from 'src/shared/components/Loader/Loader';
+import { Container, Row } from "src/shared/styles/base/grid";
+import Loader from "src/shared/components/Loader/Loader";
 
-import useCharacterList from 'src/shared/hooks/useCharacterList';
-import CharacterItem from './CharacterItem';
+import useCharacterList from "src/shared/hooks/useCharacterList";
+import CharacterItem from "./CharacterItem";
 
 export default function CharacterList() {
   const { loading, characterList } = useCharacterList();
@@ -15,7 +15,7 @@ export default function CharacterList() {
         {loading ? (
           <Loader />
         ) : (
-          characterList.map((movie) => (
+          characterList.map(movie => (
             <CharacterItem
               key={movie.id}
               id={movie.id}
@@ -24,6 +24,8 @@ export default function CharacterList() {
               mass={movie.mass}
               hair_color={movie.hair_color}
               skin_color={movie.skin_color}
+              home_world={movie.homeworld}
+              gender={movie.gender}
             />
           ))
         )}

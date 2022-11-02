@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import CharacterDetailHeader from './CharacterDetailHeader';
-import CharacterDetailDescription from './CharacterDetailDescription';
-import CharacterDetailList from './CharacterDetailList';
+import CharacterDetailHeader from "./CharacterDetailHeader";
+import CharacterDetailDescription from "./CharacterDetailDescription";
+import CharacterDetailList from "./CharacterDetailList";
 
-import { CharDetailType } from 'src/shared/helpers/api';
-import { COLOR_WHITE, COLOR_BACKGROUND } from 'src/shared/styles/themes/colors';
+import { CharDetailType } from "src/shared/helpers/api";
+import { COLOR_WHITE, COLOR_BACKGROUND } from "src/shared/styles/themes/colors";
 
 const Wrapper = styled.section`
   display: flex;
@@ -29,7 +29,7 @@ export default function CharacterDetailContent({
   planets,
   species,
   starships,
-  vehicles,
+  vehicles
 }: CharDetailType) {
   return (
     <Wrapper>
@@ -39,11 +39,11 @@ export default function CharacterDetailContent({
         gender={gender}
       />
       <CharacterDetailDescription description={description} />
-      <CharacterDetailList label='Starships' list={characters} />
-      <CharacterDetailList label='Films' list={planets} />
-      <CharacterDetailList label='Species' list={species} />
-      <CharacterDetailList label='Starships' list={starships} />
-      <CharacterDetailList label='Vehicles' list={vehicles} />
+      <CharacterDetailList label="Starships" list={characters} />
+      <CharacterDetailList label="Films" list={planets} />
+      <CharacterDetailList label="Species" list={species} />
+      <CharacterDetailList label="Starships" list={starships} />
+      <CharacterDetailList label="Vehicles" list={vehicles} />
     </Wrapper>
   );
 }
@@ -57,5 +57,5 @@ CharacterDetailContent.propTypes = {
   planets: PropTypes.array,
   species: PropTypes.array,
   starships: PropTypes.array,
-  vehicles: PropTypes.array,
+  vehicles: PropTypes.array
 };

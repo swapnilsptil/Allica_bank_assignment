@@ -1,23 +1,23 @@
-import React from 'react';
-import { MemoryRouter as Router } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import React from "react";
+import { MemoryRouter as Router } from "react-router-dom";
+import { render, screen } from "@testing-library/react";
 
-import useCharacterList from 'src/shared/hooks/useCharacterList';
-import CharacterList from './CharacterList';
+import useCharacterList from "src/shared/hooks/useCharacterList";
+import CharacterList from "./CharacterList";
 
-jest.mock('src/shared/hooks/useCharacterList');
+jest.mock("src/shared/hooks/useCharacterList");
 
 const mockeduseCharacterList = useCharacterList as jest.Mock;
 
-describe('<CharacterList />', () => {
+describe("<CharacterList />", () => {
   afterEach(() => {
     mockeduseCharacterList.mockReset();
   });
 
-  test('Should render Loader Component on loading', () => {
+  test("Should render Loader Component on loading", () => {
     mockeduseCharacterList.mockImplementation(() => {
       return {
-        loading: true,
+        loading: true
       };
     });
 
@@ -31,36 +31,42 @@ describe('<CharacterList />', () => {
     expect(loader).toBeInTheDocument();
   });
 
-  test('Should render Movie List properly', () => {
+  test("Should render Movie List properly", () => {
     mockeduseCharacterList.mockImplementation(() => {
       return {
         loading: false,
         characterList: [
           {
             id: 1,
-            name: 'Luke Skywalker',
-            height: '172',
-            mass: '77',
-            hair_color: 'blond',
-            skin_color: 'fair',
+            name: "Luke Skywalker",
+            height: "172",
+            mass: "77",
+            hair_color: "blond",
+            skin_color: "fair",
+            home_world: "Tatooine",
+            gender: "male"
           },
           {
             id: 2,
-            name: 'Luke Skywalker',
-            height: '172',
-            mass: '77',
-            hair_color: 'brown',
-            skin_color: 'white',
+            name: "Luke Skywalker",
+            height: "172",
+            mass: "77",
+            hair_color: "brown",
+            skin_color: "white",
+            home_world: "Tatooine",
+            gender: "male"
           },
           {
             id: 3,
-            name: 'Luke Skywalker',
-            height: '172',
-            mass: '77',
-            hair_color: 'gray',
-            skin_color: 'light',
-          },
-        ],
+            name: "Luke Skywalker",
+            height: "172",
+            mass: "77",
+            hair_color: "gray",
+            skin_color: "light",
+            home_world: "Tatooine",
+            gender: "male"
+          }
+        ]
       };
     });
 
@@ -71,16 +77,11 @@ describe('<CharacterList />', () => {
     );
 
     const nameElement = screen.getAllByText(/Luke Skywalker/i);
-    const heightElement = screen.getAllByText(/172/i);
-    // const linkElement = screen.getAllByText(/more info/i);
-    const yearMovieOneElement = screen.getByText(/blond/i);
-    const yearMovieTwoElement = screen.getByText(/fair/i);
-    // const yearMovieThreeElement = screen.getByText(/2015/i);
+    const heightElement = screen.getAllByText(/HomeWorld/i);
+    const linkElement = screen.getAllByText(/gender/i);
 
     expect(nameElement).toHaveLength(3);
     expect(heightElement).toHaveLength(3);
-    // expect(linkElement).toHaveLength(3);
-    expect(yearMovieOneElement).toBeInTheDocument();
-    expect(yearMovieTwoElement).toBeInTheDocument();
+    expect(linkElement).toHaveLength(3);
   });
 });

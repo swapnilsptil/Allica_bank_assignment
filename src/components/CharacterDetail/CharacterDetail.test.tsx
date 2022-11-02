@@ -1,25 +1,25 @@
-import React from 'react';
-import { MemoryRouter as Router } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import React from "react";
+import { MemoryRouter as Router } from "react-router-dom";
+import { render } from "@testing-library/react";
 
-import CharacterDetail from './CharacterDetail';
-import useCharacterDetail from 'src/shared/hooks/useCharacterDetail';
+import CharacterDetail from "./CharacterDetail";
+import useCharacterDetail from "src/shared/hooks/useCharacterDetail";
 
-import { CHARACTER_DETAIL_MOCK_DATA } from 'src/shared/constants/mock-data.constant';
+import { CHARACTER_DETAIL_MOCK_DATA } from "src/shared/constants/mock-data.constant";
 
-jest.mock('src/shared/hooks/useCharacterDetail');
+jest.mock("src/shared/hooks/useCharacterDetail");
 
 const mockedUseCharacterDetail = useCharacterDetail as jest.Mock<any>;
 
-describe('<CharacterDetail />', () => {
+describe("<CharacterDetail />", () => {
   afterEach(() => {
     mockedUseCharacterDetail.mockReset();
   });
 
-  test('Should render Loader component', () => {
+  test("Should render Loader component", () => {
     mockedUseCharacterDetail.mockImplementation(() => {
       return {
-        loading: true,
+        loading: true
       };
     });
     const { getByTestId } = render(
@@ -31,34 +31,34 @@ describe('<CharacterDetail />', () => {
     expect(getByTestId(/loader/i)).toBeInTheDocument();
   });
 
-  test('Should render Character Detail properly', () => {
+  test("Should render Character Detail properly", () => {
     mockedUseCharacterDetail.mockImplementation(() => {
       return {
         loading: false,
         characterDetail: {
           id: 1,
-          name: 'Luke Skywalker',
-          height: '111',
-          mass: '187',
-          hair_color: 'blond',
-          skin_color: 'fair',
-          eye_color: 'blue',
-          birth_year: '19BBY',
-          gender: 'male',
-          homeworld: 'https://swapi.dev/api/planets/1/',
+          name: "Luke Skywalker",
+          height: "111",
+          mass: "187",
+          hair_color: "blond",
+          skin_color: "fair",
+          eye_color: "blue",
+          birth_year: "19BBY",
+          gender: "male",
+          homeworld: "https://swapi.dev/api/planets/1/",
           films: [
-            'A New Hope',
-            'The Empire Strikes Back',
-            'Return of the Jedi',
-            'Revenge of the Sith',
+            "A New Hope",
+            "The Empire Strikes Back",
+            "Return of the Jedi",
+            "Revenge of the Sith"
           ],
           species: [],
-          vehicles: ['Snowspeeder', 'Imperial Speeder Bike'],
-          starships: ['X-wing', 'Imperial shuttle'],
-          created: '2014-12-09T13:50:51.644000Z',
-          edited: '2014-12-09T13:50:51.644000Z',
-          url: 'https://swapi.dev/api/people/1/',
-        },
+          vehicles: ["Snowspeeder", "Imperial Speeder Bike"],
+          starships: ["X-wing", "Imperial shuttle"],
+          created: "2014-12-09T13:50:51.644000Z",
+          edited: "2014-12-09T13:50:51.644000Z",
+          url: "https://swapi.dev/api/people/1/"
+        }
       };
     });
     const { getByText } = render(

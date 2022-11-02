@@ -1,33 +1,37 @@
-import { API_URL_PEOPLE } from '../constants/api.constant';
+import { API_URL_PEOPLE } from "../constants/api.constant";
 
 export const getAllCharacter = async (): Promise<CharacterDataType[]> => {
   const res = await fetch(API_URL_PEOPLE);
   const resJson: CharactersResponse = await res.json();
-  const editedCharacterList = resJson.results.map((character) => ({
-    id: Number(
-      character.url
-        .split('/')
-        .filter(Boolean)
-        .pop()
-    ),
-    name: character.name,
-    gender: character.gender,
-    homeworld: character.homeworld,
-    height: character.height,
-    birth_year: character.birth_year,
+  const editedCharacterList = resJson.results.map(character => {
+    console.log(".................. character", character);
 
-    mass: character.mass,
-    hair_color: character.hair_color,
-    skin_color: character.skin_color,
-    eye_color: character.eye_color,
-    films: character.films,
-    species: character.species,
-    vehicles: character.vehicles,
-    starships: character.starships,
-    created: character.created,
-    edited: character.edited,
-    url: character.url,
-  }));
+    return {
+      id: Number(
+        character.url
+          .split("/")
+          .filter(Boolean)
+          .pop()
+      ),
+      name: character.name,
+      gender: character.gender,
+      homeworld: character.homeworld,
+      height: character.height,
+      birth_year: character.birth_year,
+
+      mass: character.mass,
+      hair_color: character.hair_color,
+      skin_color: character.skin_color,
+      eye_color: character.eye_color,
+      films: character.films,
+      species: character.species,
+      vehicles: character.vehicles,
+      starships: character.starships,
+      created: character.created,
+      edited: character.edited,
+      url: character.url
+    };
+  });
   return editedCharacterList;
 };
 
@@ -37,24 +41,24 @@ export const getSingleCharacter = async (
   const res = await fetch(`${API_URL_PEOPLE}${id}/`);
   const character: CharacterResponse = await res.json();
 
-  const resSpecies = character.species.map((url) =>
+  const resSpecies = character.species.map(url =>
     fetch(url)
-      .then((data) => data.json())
+      .then(data => data.json())
       .then((c: SpeciesResponse) => c.name)
   );
-  const resStarships = character.starships.map((url) =>
+  const resStarships = character.starships.map(url =>
     fetch(url)
-      .then((data) => data.json())
+      .then(data => data.json())
       .then((c: StarshipsResponse) => c.name)
   );
-  const resVehicles = character.vehicles.map((url) =>
+  const resVehicles = character.vehicles.map(url =>
     fetch(url)
-      .then((data) => data.json())
+      .then(data => data.json())
       .then((c: VehiclesResponse) => c.name)
   );
-  const resFilms = character.films.map((url) =>
+  const resFilms = character.films.map(url =>
     fetch(url)
-      .then((data) => data.json())
+      .then(data => data.json())
       .then((c: FilmResponse) => c.title)
   );
   const species = await Promise.all(resSpecies);
@@ -65,7 +69,7 @@ export const getSingleCharacter = async (
   const editedCharacterList = {
     id: Number(
       character.url
-        .split('/')
+        .split("/")
         .filter(Boolean)
         .pop()
     ),
@@ -84,7 +88,7 @@ export const getSingleCharacter = async (
     starships: starships,
     created: character.created,
     edited: character.edited,
-    url: character.url,
+    url: character.url
   };
   return editedCharacterList;
 };
@@ -103,6 +107,8 @@ export type CharacterItemType = {
   mass: string;
   hair_color: string;
   skin_color: string;
+  home_world: string;
+  gender: string;
 };
 
 export type MovieDetailType = {
@@ -197,7 +203,7 @@ export type CharactersResponse = {
   count: number;
   next: number | null;
   previos: number | null;
-  name: string | '';
+  name: string | "";
   results: CharacterResponse[];
 };
 
@@ -215,6 +221,23 @@ export type CharacterResponse = {
   species: string[];
   vehicles: string[];
   starships: string[];
+  created: string;
+  edited: string;
+  url: string;
+};
+
+export type homeworldResponse = {
+  name: string;
+  rotation_period: number;
+  orbital_period: number;
+  diameter: number;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: number;
+  population: number;
+  residents: string[];
+  films: string[];
   created: string;
   edited: string;
   url: string;

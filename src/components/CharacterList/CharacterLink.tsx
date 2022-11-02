@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import { COLOR_YELLOW, COLOR_RED } from 'src/shared/styles/themes/colors';
+import { COLOR_YELLOW, COLOR_RED } from "src/shared/styles/themes/colors";
 
 const CharacterLinkStyle = styled.p`
   padding-top: 1.2rem;
@@ -26,5 +26,5 @@ export type CharacterLinkProps = {
 };
 
 CharacterLink.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired
 };

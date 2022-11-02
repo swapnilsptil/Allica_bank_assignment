@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { getAllCharacter, CharacterDataType } from 'src/shared/helpers/api';
+import { getAllCharacter, CharacterDataType } from "src/shared/helpers/api";
 
 export default function useCharacterList(): CharacterListHooksType {
   const [characterList, setCharacterList] = useState<CharacterDataType[]>([]);
@@ -24,7 +24,7 @@ export default function useCharacterList(): CharacterListHooksType {
 
   return {
     loading,
-    characterList,
+    characterList
   };
 }
 
