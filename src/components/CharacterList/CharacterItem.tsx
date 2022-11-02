@@ -79,7 +79,7 @@ export default function CharacterItem({
   home_world,
   gender
 }: CharacterItemType) {
-  const [homeWorld, setHomeWorld] = useState<string>("");
+  const [homeWorld, setHomeWorld] = useState<string>("Loading...");
   fetch(home_world)
     .then(data => data.json())
     .then((c: homeworldResponse) => setHomeWorld(c.name));
